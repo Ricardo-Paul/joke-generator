@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import decode from 'he'
 
+
 const Effect = () => {
     const [joke, setJoke] = useState([]);
     const [loaded, setLoaded] = useState(false);
@@ -28,8 +29,8 @@ const Effect = () => {
      
     return(
          <div>
-        <h4>{joke || error }</h4>
-         <button onClick={ ()=> setLastJoke(joke) }>Joke</button>
+        <h4 className="text">{joke || error }</h4>
+         <button className="btn" onClick={ ()=> setLastJoke(joke) }>Joke</button>
         </div>
     )
 }
