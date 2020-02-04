@@ -1,28 +1,69 @@
 body {
-  background: #1a237e;
-  color: #e8eaf6;
+  background: rgb(161, 157, 157);
+}
+
+.modal {
   text-align: center;
+  width: 90%;
 }
 
-.btn{
-  width:200px;
-  height:200px;
-  line-height:100px;
-  border:2px solid #29966c;
-  border-radius: 50%;
-  color:1a237e;
-  text-align:center;
-  text-decoration:none;
-  background: #FFFFFF;
-  box-shadow: 0 0 3px gray;
-  font-size:20px;
-  font-weight:bold; 
-  
-  margin-top: 150px;
-  margin: auto;
-  top: 50%;
+.modal-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  align-items: center;
 }
 
-.text{
-  font-size: 30px;
+.disappear{
+  display: none;
+}
+
+.modal-header {
+   background: rgb(17, 10, 1);
+   position: relative;
+   height: 30px;
+   padding-top: 10px;
+   color: darkorange;
+}
+
+.modal-header span{
+  display: inline-block;
+  top: 2px;
+  width: 5px;
+
+  top: 2px;
+  right: 7px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.modal-body {
+  /* background: rgb(22, 16, 16); */
+  padding: 10px;
+  color: aliceblue;
+  background: rgb(22, 16, 16);
+  /* transition: all 2s; */
+}
+
+.modal-button {
+  margin-top: 10px;
+  width: 29%;
+  background: rgb(17, 10, 1);
+  color: darkorange;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+
+  outline: none;
+}
+
+.red {
+  animation: space 2s;
+}
+
+@keyframes space {
+  from {background: rgb(94, 52, 4);}
+  to{ background: rgb(22, 16, 16);}
 }
