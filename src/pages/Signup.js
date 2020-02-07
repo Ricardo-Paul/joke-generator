@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
-export default function Signup() {
+export default function Signup(props) {
 
 const[name, setName] = useState("")
 const[email, setEmail] = useState("")
@@ -38,6 +38,7 @@ const handleSubmit = (e) => {
         console.log(res.data)
         const auth_token = res.data.auth_token
         localStorage.setItem('auth_token', auth_token)
+        props.history.push("/home")
     })
 }
 

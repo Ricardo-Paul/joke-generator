@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-export default function Logout() {
+export default function Logout(props) {
     const handleLogOut = () => {
         axios.delete('/sessions',{
             headers:{
@@ -9,6 +9,7 @@ export default function Logout() {
             }
         })
         localStorage.removeItem('auth_token')
+        props.history.push("/")
     }
     return (
         <div>

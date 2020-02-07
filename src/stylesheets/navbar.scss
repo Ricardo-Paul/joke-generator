@@ -1,0 +1,28 @@
+.navbar{
+    background: var(--textColor);
+    color: var(--backColor);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgb(126, 124, 124);
+
+    & .links{
+        display: flex;
+        justify-content: space-around;
+        width: 150px;
+        text-decoration: none;
+    };
+    & .signin, .signup{
+        background: rgb(77, 74, 74);
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+.signin, .signup {
+    padding: 0.4rem;
+    border-radius: 5px;
+    background-color: var(--backColor);
+}

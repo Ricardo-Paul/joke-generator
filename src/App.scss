@@ -1,0 +1,14 @@
+:root {
+  --main-bg-color: rgb(180, 179, 177);
+  --textColor: rgb(202, 109, 3);
+  --backColor: #00040e;
+}
+
+body {
+  background: var(--main-bg-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// sandybrown

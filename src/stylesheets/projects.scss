@@ -1,0 +1,115 @@
+.projects{
+    background: rgb(185, 181, 181);
+    padding: 10px;
+}
+
+.project-card{
+    // background: #000;
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+}
+.dev-photo {
+    display: flex;
+    align-items: flex-start;
+}
+.dev-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 0.7rem;
+    border: 0.1rem solid rgb(107, 106, 106);
+}
+// card ------------------------------------------------------------------------
+.card-body {
+    background: rgb(238, 238, 233);
+    color: rgb(8, 8, 8);
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0px 5px 20px 5px rgb(116, 115, 115);
+    width: 100%;
+}
+
+.card-header{
+    color: chocolate;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+
+    p:last-child{
+        font-size: 0.8rem;
+        color: rgb(68, 68, 68);
+    }
+}
+
+.project-title{
+    text-transform: uppercase;
+    font-family: Arial;
+    font-size: 1.2rem;
+    margin-top: 0px;
+    color: rgb(131, 127, 124);
+}
+
+.card-buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card-buttons span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgb(245, 244, 244);
+    color: var(--textColor);
+    box-shadow: 2px 2px 2px 1px rgb(173, 170, 170);
+    cursor: pointer;
+}
+
+.card-buttons span:last-of-type{
+    margin-left: 0.7rem;
+}
+
+.project-description{
+    font-size: 0.9rem;
+}
+
+//TODO:
+// project style
+// search
+// add project
+// --------------------------------------------------------------------
+.input-control{
+    display: flex;
+    justify-content: center;
+}
+
+.search-project{
+    background: transparent;
+    box-shadow: 0px 4px 5px 0px var(--textColor);
+    color: black;
+    padding: 0.4rem 0.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--textColor);
+    outline: none;
+    margin-bottom: 2rem;
+    width: 100%;
+    // height: 30px;
+}
+
+.new-project-button{
+    float: right;
+    margin-bottom: 2rem;
+    padding: 0.4rem;
+
+    outline: none;
+    border-radius: 5px;
+    background: var(--textColor);
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    cursor: pointer;
+}

@@ -1,0 +1,114 @@
+.user {
+    background: var(--backColor);
+    color: var(--textColor);
+    font-style: ubuntu;
+    position: relative;
+
+    & .info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & .name{
+            font-size: 1.5em;
+            margin-bottom: 0px;
+        }
+
+        & .email{
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+    }
+
+    & .join{
+        text-align: left;
+        font-size: 0.7rem;
+        padding-left: 15px;
+    }
+
+    & .show-projects{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        cursor: pointer;
+    }
+}
+
+.profile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile img{
+    margin-top: 5%;
+    width: 50%;
+    border-radius: 50%;
+    border: 2px solid;
+}
+
+.social{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+.project-header{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.user-projects{
+    // background: rgb(24, 21, 21);
+    display: none;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 0.01rem;
+
+    & ul{
+        margin-top: 5px;
+        padding: 0rem 0.5rem;
+    }
+
+    & li{
+        font-size: 0.8rem;
+        list-style: none;
+        padding: 0.2rem;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.02px solid rgb(114, 111, 111);
+
+        & span:first-child{
+            letter-spacing: 1px;
+            font-weight: 100;
+        }
+    }
+
+    & .p-owner{
+        margin-bottom: 0px;
+        font-weight: 50;
+        text-align: center;
+        color: seashell;
+    }
+
+    & .my-projects{
+        padding: 5px;
+        border-bottom: 1px solid;
+    }
+
+    & .contribute-on{
+        background: rgb(8, 8, 8);
+        padding: 5px;
+    }
+}
+
+.profile-footer{
+    margin-top: 10px;
+    background: rgb(7, 7, 7);
+    overflow: hidden;
+  }
