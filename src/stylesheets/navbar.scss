@@ -1,28 +1,50 @@
 .navbar{
-    background: var(--textColor);
+    background: white;
     color: var(--backColor);
     display: flex;
     justify-content: space-between;
-    padding: 0.4rem;
+    padding: 0.6rem;
     align-items: center;
     margin-bottom: 2rem;
-    border-bottom: 2px solid rgb(126, 124, 124);
+    border-bottom: 2px solid rgb(133, 130, 136);
 
     & .links{
         display: flex;
         justify-content: space-around;
-        width: 150px;
+        width: 20rem;
         text-decoration: none;
     };
     & .signin, .signup{
-        background: rgb(77, 74, 74);
+        background: whitesmoke;
         text-decoration: none;
-        color: whitesmoke;
+        color: var(--violet);
     }
+
 }
 
 .signin, .signup {
     padding: 0.4rem;
     border-radius: 5px;
     background-color: var(--backColor);
+}
+
+.my-projects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    width: 9rem;
+    height: 2rem;
+    text-decoration: none;
+    background-color: rgba(133, 131, 128, 0.863);
+    color: whitesmoke;
+    border-radius: .9rem;
+
+    transition: .2s;
+}
+
+.my-projects:hover{
+    background-color: rgb(109, 107, 107);
+    color:  white
 }

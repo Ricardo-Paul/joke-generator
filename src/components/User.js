@@ -3,8 +3,10 @@ import axios from 'axios'
 import '../stylesheets/user.scss'
 import $ from 'jquery'
 import profile from '../stylesheets/images/profile.png'
+// import { DirectUpload } from 'activestorage';
+// import { DirectUpload } from 'activestorage'
 
-import { faCoffee, faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faChevronCircleDown, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
@@ -15,6 +17,7 @@ export default class User extends Component {
         name: "",
         email: "",
         created_at: "",
+        picture: '',
         projects: [],
         contributed_projects: []
     }
@@ -27,15 +30,16 @@ export default class User extends Component {
             }
         })
         .then(res => {
-            console.log("data here",res.data)
-            const userData = res.data
+            const data = res.data
+            console.log(data)
             this.setState({
-                id: userData.id,
-                name: userData.name,
-                email: userData.email,
-                created_at: userData.created_at,
-                projects: userData.projects,
-                contributed_projects: userData.contributed_projects
+                id: data.current_user.id,
+                name: data.current_user.name,
+                email: data.current_user.email,
+                created_at: data.current_user.created_at,
+                picture: data.picture
+                // projects: userData.projects,
+                // contributed_projects: userData.contributed_projects
             })
         })
     }
@@ -45,11 +49,41 @@ export default class User extends Component {
     }
 
     render() {
+
+        const handleChange = (e) => {
+            const auth_token = localStorage.getItem("auth_token")
+            const formData = new FormData()
+            const picture = e.target.files[0]
+            formData.append('picture', picture, picture.name)
+
+            axios.put(`/upload/${5}`, formData, {
+                headers: {Authorization: auth_token}
+            })
+            .then(res => {
+                const data = res.data
+                this.setState({
+                    picture: data.picture
+                })
+            })
+            .catch( err => {
+                console.log(err)
+            })
+        }
+
+        const triggerInput = () => {
+           const inputButton = document.getElementById('input-button')
+            inputButton.click()
+        }
+
         return (
             <div className="user">
                 <div className="profile">
-                  <img src={profile} alt=""/>
+                  <img src={`http://localhost:3000/${this.state.picture}`} alt="Profile Picture"/>
+                  <span onClick={triggerInput} > <FontAwesomeIcon icon={faEdit} /> </span>
                 </div>
+
+                <input type="file" name="picture" onChange={handleChange} id="input-button" hidden  />
+
                 <div className="info">
                     <p className="name"> {this.state.name} </p>
                     <p className="email">{this.state.email}</p>
@@ -83,13 +117,13 @@ export default class User extends Component {
                         </ul>
                         ) : (<p>No projects</p>)}
                     </div>
-
                 </div>
                 <div className="profile-footer">
-                    <p className="join">Join since <span className="date"> {this.state.created_at} </span> </p>
-                    <span onClick={this.toggleProjects} className="show-projects" > <FontAwesomeIcon icon={faChevronCircleDown} size="lg" /> </span>
+
                 </div>
             </div>
         )
     }
 }
+
+// 

@@ -1,33 +1,40 @@
 .projects{
-    background: rgb(185, 181, 181);
-    padding: 10px;
+    position: relative;
 }
 
 .project-card{
-    // background: #000;
-    width: 100%;
     display: flex;
-    margin-bottom: 1rem;
+
+    width: 100%;
+    height: 150px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background:  rgb(255, 255, 255);
+    margin-bottom: 2rem;
+    // border: 1px solid blueviolet;
+
+    box-shadow: 2px 2px 5px rgb(161, 157, 157);
+    padding-bottom: 1rem;
 }
 .dev-photo {
+    width: 100px;
+    height: 100px;
+    margin-right: 1rem;
+    // background-color: rgb(235, 45, 45);
+}
+
+.dev-photo img{
     display: flex;
-    align-items: flex-start;
-}
-.dev-photo img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-right: 0.7rem;
-    border: 0.1rem solid rgb(107, 106, 106);
-}
-// card ------------------------------------------------------------------------
-.card-body {
-    background: rgb(238, 238, 233);
-    color: rgb(8, 8, 8);
-    padding: 0.5rem 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0px 5px 20px 5px rgb(116, 115, 115);
     width: 100%;
+    height: 100%;
+}
+
+.card-body{
+    width: 80%;
+    background:  rgb(255, 255, 255);
+    margin-bottom: 1rem;
+    padding: 1rem;
 }
 
 .card-header{
@@ -49,7 +56,7 @@
     margin-top: 0px;
     color: rgb(131, 127, 124);
 }
-
+// -------------------------------------------------------------------
 .card-buttons{
     display: flex;
     justify-content: flex-end;
@@ -62,10 +69,8 @@
     
     width: 25px;
     height: 25px;
-    border-radius: 50%;
-    background: rgb(245, 244, 244);
-    color: var(--textColor);
-    box-shadow: 2px 2px 2px 1px rgb(173, 170, 170);
+    background: var(--violet);
+    color: whitesmoke;
     cursor: pointer;
 }
 
@@ -83,33 +88,51 @@
 // add project
 // --------------------------------------------------------------------
 .input-control{
-    display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .search-project{
     background: transparent;
-    box-shadow: 0px 4px 5px 0px var(--textColor);
-    color: black;
+    color: var(--violet);
     padding: 0.4rem 0.5rem;
     font-size: 1rem;
-    border-radius: 10px;
-    border: 1px solid var(--textColor);
+    border: 2px solid var(--violet);
     outline: none;
     margin-bottom: 2rem;
-    width: 100%;
-    // height: 30px;
+    width: 101.5%;
 }
 
-.new-project-button{
-    float: right;
-    margin-bottom: 2rem;
-    padding: 0.4rem;
+// ------------------------------------------------------------- overview
+.project-wrapper{
+    margin-top: 2rem;
+    width: 55%;
+    display: flex;
+    position: relative;
+    // overflow: hidden;
+    background: rgb(246, 245, 248);
+    // box-shadow: 2px 2px 10px rgb(129, 127, 127);
+    padding-right: 2rem;
+    padding-top: 1rem;
+}
 
-    outline: none;
-    border-radius: 5px;
-    background: var(--textColor);
+// ------------------------------------ result-text
+.result-text{
+    width: 103.2%;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.result-text span:first-of-type{
+    background-color: rgb(88, 17, 155);
     color: whitesmoke;
-    border: 1px solid whitesmoke;
-    cursor: pointer;
+    padding: .3rem;
+}
+
+.result-text span:last-of-type{
+    float: right;
+    background-color: rgb(88, 17, 155);
+    color: whitesmoke;
+    padding: .3rem;
 }

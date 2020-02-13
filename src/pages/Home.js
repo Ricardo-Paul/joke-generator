@@ -4,6 +4,7 @@ import { Context } from '../context'
 import User from '../components/User'
 import Projects from '../components/Projects'
 import NewProject from '../components/NewProject'
+import NewProjectButton from '../components/NewProjectButton'
 
 
 import '../stylesheets/home.scss'
@@ -16,6 +17,7 @@ export default function Home() {
        
         <div >
             <div className="home">
+                <NewProjectButton />
                 <User />
                 <Projects />
                 <NewProject />

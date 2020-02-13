@@ -1,0 +1,76 @@
+.project-overview {
+    top: 2%;
+    width: 15%;
+    // height: auto;
+    padding: 0.5rem;
+
+    right: 2%;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    transition: 0.2s;
+    z-index: 3;
+    box-shadow: 2px 2px 5px rgb(216, 213, 213);
+    transform: scale(0.1);
+    overflow: hidden;
+}
+
+.project-overview .cross{
+    background-color: rgb(243, 241, 248);
+    width: 30px;
+    height: 30px;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    color: rgb(14, 1, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .4s;
+
+    position: absolute;
+    right: 0.3rem;
+}
+
+.project-overview .cross:hover{
+    transform: scale(1.2);
+}
+
+// ----------------------------------------------------------------
+.dev-avatar{
+    width: 6rem;
+    height: 6rem;
+    background-color: rgb(74, 9, 196);
+    border: 1px solid white;
+    border-radius: 50%;
+    align-self: center;
+
+    object-fit: cover;
+    display: block;
+    margin: 1rem auto;
+}
+
+.p-title{
+    text-align: center;
+}
+
+.p-title{
+    color: rgb(10, 10, 10);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.p-description{
+    text-align: center;
+    font-size: .7rem;
+}
+
+.p-button{
+    cursor: pointer;
+    width: auto;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    padding: .5rem;
+    background-color: rgb(74, 9, 196);
+    text-align: center;
+    border-radius: .3rem;
+}

@@ -8,6 +8,8 @@ import Navbar from './layout/Navbar';
 import Home from './pages/Home';
 import { ContextController, Context } from './context';
 import Logout from './components/Logout';
+import Project from './pages/Project';
+import MyProjects from './pages/MyProjects';
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/home" component={Home}/>
           <Route path="/logout" component={Logout} />
+          <Route path="/project/:id" component={Project} />
+          <Route path="/myprojects"  component={MyProjects} />
         </div>
       </Router>
       {/* </Context.Consumer> */}

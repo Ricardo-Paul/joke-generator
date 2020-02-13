@@ -8,6 +8,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class NewProject extends Component {
 
+    componentDidMount(){
+        axios.get('/companies')
+        .then(res => {
+            console.log("companies",res.data)
+        })
+    }
+
     state = {
         id: "",
         title: "",
@@ -19,26 +26,37 @@ export default class NewProject extends Component {
     }
 
     render() {
-        const closeWindow = () => {
-            $(".new-project").removeClass("showWindow")
-            $(".new-project").addClass("hideWindow")
+
+        const handleChange = (e) => {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+         }
+
+         const onTitleChange = (e) => {
+            this.setState({
+                title: e.target.value
+            })
+         }
+         
+         const closeWindow = () => {
+             document.querySelector(".new-project").style.transform = "scale(0)" //
             window.location.reload(false)
         }
-        
-        const handleSubmit = (e) => {
+
+        const handleSubmit=(e)=>{
             e.preventDefault();
             const data = {
                 "project":{
-                    "title": "Daily Deal",
-                    "stacks": "Flutter",
-                    "description": "Create an environment where we can...",
-                    "gitlink": "https://github.com/Ricardo-Paul/softbuilders/branches",
+                    "title": this.state.title,
+                    "stacks": this.state.stacks,
+                    "description": this.state.description,
+                    "gitlink": this.state.gitlink,
                     "company_attributes": {
                         "name": "Noukod"
                     }
                 }
             }
-            
             axios.post('/projects', data,{
                 headers: { 'Authorization': localStorage.getItem("auth_token") }
             })
@@ -50,17 +68,11 @@ export default class NewProject extends Component {
             })
         }
 
-        const handleChange = (e) => {
-           this.setState({
-               [e.target.name]:[e.target.value]
-           })
-        }
-
-
         return (
             <div className="new-project">
             <span className="close" onClick={closeWindow}> <FontAwesomeIcon icon={faTimesCircle} /> </span>
-            <form onSubmit={handleSubmit}>
+            <p className="p-text"> Add New Project </p>
+            <form className="add-project-form" onSubmit={(e)=> handleSubmit(e)}>
                     <input type="text"
                     placeholder="title"
                     name="title"
@@ -69,14 +81,7 @@ export default class NewProject extends Component {
                     /> <br/>
 
                     <input type="text"
-                    placeholder="Description"
-                    name="description"
-                    value={this.state.description}
-                    onChange={handleChange}
-                    /> <br/>
-
-                    <input type="text"
-                    placeholder="stacks"
+                    placeholder="E.g: JavaScript Python Flutter "
                     name="stacks"
                     value={this.state.stacks}
                     onChange={handleChange}
@@ -89,13 +94,23 @@ export default class NewProject extends Component {
                     onChange={handleChange}
                     /> <br/>
 
-                    <button> ADD & SHARE </button>
+                    <textarea type="text"
+                    placeholder="Description"
+                    name="description"
+                    value={this.state.description}
+                    onChange={handleChange}
+                    /> <br/>
+
+
+                    <button type="submit"> ADD & SHARE </button>
                     {this.state.title}
                     {this.state.description}
                     {this.state.stacks}
                     {this.state.gitlink}
                 </form>
-
+                {/* <div className="published">
+                    Project Added
+                </div> */}
             </div>
         )
     }

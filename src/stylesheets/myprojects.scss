@@ -1,0 +1,52 @@
+.myprojects {
+    width: 70%;
+    margin: 0 auto;
+
+    .pro-text{
+        color: var(--violet);
+        padding: .5rem;
+        background-color: rgb(238, 237, 237);
+        border-radius: .3rem;
+        span{
+            float: right;
+            margin-left: 1rem;
+        }
+
+        span:last-of-type{
+            color: rgb(236, 238, 231);
+            background: rgb(240, 98, 4);
+            padding: .2rem;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
+
+.project-list{
+    font-family: Ubuntu;
+    width: 20%;
+    list-style-type: none;
+    padding: .5rem;
+    // box-shadow: 0px 2px 5px #a19d9d;
+
+    .project-list-item{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .trash-button{
+        cursor: pointer;
+        background-color: #fff;
+        border: none;
+        outline: none;
+        color: red;
+        transition: .3s;
+    }
+
+    .trash-button:hover{
+        transform: scale(1.5);
+        color: rgb(240, 113, 39);
+    }
+}
+
