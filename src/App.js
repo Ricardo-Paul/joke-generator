@@ -11,11 +11,17 @@ import Logout from './components/Logout';
 import Project from './pages/Project';
 import MyProjects from './pages/MyProjects';
 
+
+// Redux Stuff
+import storeActionExport from './redux/storeActionExport';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
+
 export default function App() {
   return (
-    <ContextController>
-      {/* <Context.Consumer> */}
-      <Router>
+    <Provider store={store} >
+        <Router>
         <Navbar />
         <div className="App">
           <Route exact path="/" component={Login}/>
@@ -26,7 +32,6 @@ export default function App() {
           <Route path="/myprojects"  component={MyProjects} />
         </div>
       </Router>
-      {/* </Context.Consumer> */}
-    </ContextController>
+    </Provider>
   )
 }

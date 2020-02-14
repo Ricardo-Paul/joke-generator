@@ -10,11 +10,7 @@ import NewProjectButton from '../components/NewProjectButton'
 import '../stylesheets/home.scss'
 
 export default function Home() {
-    const [state, setState] = useContext(Context)
-    console.log(state)
-
     return (
-       
         <div >
             <div className="home">
                 <NewProjectButton />

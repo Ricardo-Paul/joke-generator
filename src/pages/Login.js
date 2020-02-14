@@ -1,9 +1,12 @@
 import React, {useState, useContext, useEffect} from 'react'
 import axios from 'axios'
-import { Context } from '../context'
 
-export default function Login(props) {
-const [state, setState] = useContext(Context)
+// redux stuff
+import { setAuthenticated } from '../redux/actions/actions'
+import { connect } from 'react-redux'
+import { SET_AUTHENTICATED } from '../redux/actions/action-types'
+
+const Login = (props) => {
 
 const[email, setEmail] = useState("")
 const[password, setPassword] = useState("")
@@ -17,7 +20,6 @@ const handlePasswordChange = (e) => {
 
 const handleSubmit = (e) => {
 	e.preventDefault()
-	setState({loading: true})
 	axios.post('/sessions',{
 		"sessions":{
 			"email": email,
@@ -25,21 +27,17 @@ const handleSubmit = (e) => {
 		}
 	})
 	.then(res => {
-		setState({authenticated: true})
+		const { setAuthenticated } = props;
 		const auth_token = res.data.auth_token
 		localStorage.setItem('auth_token', auth_token)
-		
-		console.log(state)
-		props.history.push('/home');
+		props.history.push('/home')
 	})
 	.catch(error => {
 		if (error){
-			setState({error:"ERROR"})
-			console.log(state)
+			// 
 		}
 	})
 }
-
     return (
 			<form onSubmit={(e) => handleSubmit(e)}>
 			<input
@@ -58,9 +56,16 @@ const handleSubmit = (e) => {
 				value={password}
 				onChange={handlePasswordChange}
 			/> <br />
-			{state.error}
+
 			<button> Submit </button>
-			{state.loading ? (<p>loading</p>) : ""}
 			</form>
     )
 }
+
+function mapDispatchToProps(dispatch) {
+	return {
+	  setAuthenticated: () => dispatch(setAuthenticated())
+	};
+  }
+
+export default connect(null, mapDispatchToProps)(Login)

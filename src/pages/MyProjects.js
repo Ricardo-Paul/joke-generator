@@ -2,14 +2,23 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../stylesheets/myprojects.scss'
 import { Link } from 'react-router-dom'
-
 import { faTrash, faTasks, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class MyProjects extends Component {
 
     state = {
-        myprojects:[]
+        myprojects:[],
+// -----------------
+        id: "",
+        title: "",
+        description: "",
+        stacks: "",
+        gitlink: "",
+        company: "",
+        companies: [],
+
+        success: false
     }
 
     componentDidMount(){
@@ -41,6 +50,47 @@ export default class MyProjects extends Component {
             })
         }
 
+        const editProject = (id) => {
+            axios.get(`/projects/${id}`)
+            .then(res => {
+                this.setState({
+                    id: id,
+                    title: res.data.title,
+                    stacks: res.data.stacks,
+                    gitlink: res.data.gitlink,
+                    description: res.data.description
+                })
+            })
+        }
+
+        const handleChange = (e) => {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+         }
+
+        const handleSubmit=(e, id)=> {
+            id = this.state.id
+            e.preventDefault();
+            const data = {
+                "project":{
+                    "title": this.state.title,
+                    "stacks": this.state.stacks,
+                    "description": this.state.description,
+                    "gitlink": this.state.gitlink
+                }
+            }
+            axios.put(`/projects/${id}`, data,{
+                headers: { 'Authorization': localStorage.getItem("auth_token") }
+            })
+            .then( res =>{
+                window.location.reload(false)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+
         return (
             <div className="myprojects">
                 <p className="pro-text">
@@ -52,12 +102,51 @@ export default class MyProjects extends Component {
                     <input placeholder="find..." />
                     {this.state.myprojects.map ( p =>(
                         <li key={p.id} className="project-list-item" > {p.title} 
-                            <button className="trash-button" onClick={() => deleteProject(p.id)} > <FontAwesomeIcon icon={faTrash} /> </button>
+                            <button className="trash-button" onClick={() => deleteProject(p.id)} >                  <FontAwesomeIcon icon={faTrash} />
+                            </button>
+                            <button onClick={() => editProject(p.id)}>
+                                Edit
+                            </button>
                         </li>
                     ))
                     }
                 </ul>
+
+                <h2> Update </h2>
+                <form className="add-project-form" onSubmit={(e)=> handleSubmit(e)}>
+                    <input type="text"
+                    placeholder="title"
+                    name="title"
+                    value={this.state.title}
+                    onChange={handleChange}
+                    /> <br/>
+
+                    <input type="text"
+                    placeholder="E.g: JavaScript Python Flutter "
+                    name="stacks"
+                    value={this.state.stacks}
+                    onChange={handleChange}
+                    /> <br/>
+
+                    <input type="text"
+                    placeholder="Github link"
+                    name="gitlink"
+                    value={this.state.gitlink}
+                    onChange={handleChange}
+                    /> <br/>
+
+                    <textarea type="text"
+                    placeholder="Description"
+                    name="description"
+                    value={this.state.description}
+                    onChange={handleChange}
+                    /> <br/>
+
+
+                    <button type="submit"> Save </button>
+                </form>
             </div>
         )
     }
 }
+
