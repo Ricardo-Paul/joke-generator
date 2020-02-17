@@ -1,0 +1,70 @@
+// connected to myprojects.js
+
+.update-project-form{
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+    box-shadow: 2px 2px 10px lightslategray;
+    // background-color: rgb(204, 71, 38);
+    border-radius: .5rem;
+    width: 40%;
+    text-align: center;
+
+    transform: scale(0);
+    padding: 1rem;
+    transition: .3s;
+}
+
+.title-input, .stacks-input, .description-input, .gitlink-input, .update-button{
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: .5rem;
+    border-radius: .5rem;
+    outline: none;
+    border: none;
+    padding: .5rem;
+    box-shadow: 0px 2px 7px rgb(191, 192, 194);
+
+    color: rgb(78, 77, 77);
+}
+
+.title-input, .stacks-input, .gitlink-input{
+    height: 1.5rem;
+}
+
+.update-button{
+    cursor: pointer;
+    height: 2rem;
+    background-color: rgb(116, 177, 18);
+    transition: .4s;
+    color: white;
+}
+
+.update-button:hover{
+    background-color:rgb(87, 134, 11);
+}
+
+
+.description-input{
+    height: 15rem;
+}
+
+.close-update{
+    position: absolute;
+    top: -.2rem;
+    right: .5rem;
+    background: rgb(12, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 1rem;
+
+    cursor: pointer;
+    transition: .2s;
+}
+
+.close-update:hover{
+    background: rgb(218, 71, 3);
+    transform: scale(1.3);
+}

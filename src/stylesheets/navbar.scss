@@ -1,12 +1,15 @@
 .navbar{
+    text-transform: uppercase;
+    letter-spacing: .1rem;
     background: white;
-    color: var(--backColor);
+    color: rgb(5, 2, 14);
     display: flex;
     justify-content: space-between;
     padding: 0.6rem;
     align-items: center;
     margin-bottom: 2rem;
     border-bottom: 2px solid rgb(133, 130, 136);
+    // border-top: .3rem solid rgb(93, 17, 235);
 
     & .links{
         display: flex;
@@ -15,16 +18,40 @@
         text-decoration: none;
     };
     & .signin, .signup{
-        background: whitesmoke;
+        background: rgb(93, 17, 235);
         text-decoration: none;
-        color: var(--violet);
+        color: white;
     }
 }
 
 .signin, .signup {
+    margin-left: .5rem;
     padding: 0.4rem;
     border-radius: 5px;
     background-color: var(--backColor);
+}
+
+.logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    height: 2rem;
+    text-decoration: none;
+    background-color: rgba(219, 75, 18, 0.863);
+    color: whitesmoke;
+    border-radius: .3rem;
+    cursor: pointer;
+
+    margin-left: .7rem;
+    transition: .2s;
+    border: none;
+}
+
+.logout:hover{
+    background: rgba(167, 50, 4, 0.863);
+    color: whitesmoke;
 }
 
 .my-projects{
@@ -36,14 +63,14 @@
     width: 9rem;
     height: 2rem;
     text-decoration: none;
-    background-color: rgba(133, 131, 128, 0.863);
+    background-color: rgba(55, 18, 219, 0.863);
     color: whitesmoke;
-    border-radius: .9rem;
-
+    border-radius: .3rem;
+    text-transform: initial;
     transition: .2s;
 }
 
 .my-projects:hover{
-    background-color: rgb(109, 107, 107);
+    background-color: rgb(43, 25, 121);
     color:  white
 }
