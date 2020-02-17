@@ -36,7 +36,6 @@ export default class Project extends Component {
 
         return (
             <div className="project" >
-
                 <div className="left">
                     <div className="dev-info">
                         <div className="dev-picture">

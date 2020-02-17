@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Navbar from './layout/Navbar';
 import Home from './pages/Home';
-import { ContextController, Context } from './context';
+// import { ContextController, Context } from './context';
 import Logout from './components/Logout';
 import Project from './pages/Project';
 import MyProjects from './pages/MyProjects';
@@ -16,14 +16,21 @@ import MyProjects from './pages/MyProjects';
 import storeActionExport from './redux/storeActionExport';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { handleLogOut } from './redux/actions/actions';
+import { SET_AUTHENTICATED, LOGOUT } from './redux/actions/action-types'
 
+
+const auth_token = localStorage.auth_token;
+if (auth_token) {
+  store.dispatch({ type: SET_AUTHENTICATED });
+  }
 
 export default function App() {
   return (
     <Provider store={store} >
         <Router>
-        <Navbar />
         <div className="App">
+          <Navbar />
           <Route exact path="/" component={Login}/>
           <Route path="/signup" component={Signup} />
           <Route path="/home" component={Home}/>

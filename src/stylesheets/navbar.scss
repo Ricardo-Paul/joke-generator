@@ -11,7 +11,7 @@
     & .links{
         display: flex;
         justify-content: space-around;
-        width: 20rem;
+        // width: 20rem;
         text-decoration: none;
     };
     & .signin, .signup{
@@ -19,7 +19,6 @@
         text-decoration: none;
         color: var(--violet);
     }
-
 }
 
 .signin, .signup {

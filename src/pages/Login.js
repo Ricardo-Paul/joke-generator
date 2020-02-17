@@ -6,7 +6,7 @@ import { setAuthenticated } from '../redux/actions/actions'
 import { connect } from 'react-redux'
 import { SET_AUTHENTICATED } from '../redux/actions/action-types'
 
-const Login = (props) => {
+const Login = ({setAuth, history}) => {
 
 const[email, setEmail] = useState("")
 const[password, setPassword] = useState("")
@@ -20,6 +20,7 @@ const handlePasswordChange = (e) => {
 
 const handleSubmit = (e) => {
 	e.preventDefault()
+	console.log({setAuth})
 	axios.post('/sessions',{
 		"sessions":{
 			"email": email,
@@ -27,10 +28,10 @@ const handleSubmit = (e) => {
 		}
 	})
 	.then(res => {
-		const { setAuthenticated } = props;
 		const auth_token = res.data.auth_token
 		localStorage.setItem('auth_token', auth_token)
-		props.history.push('/home')
+		setAuth()
+		history.push('/home')
 	})
 	.catch(error => {
 		if (error){
@@ -64,7 +65,7 @@ const handleSubmit = (e) => {
 
 function mapDispatchToProps(dispatch) {
 	return {
-	  setAuthenticated: () => dispatch(setAuthenticated())
+	  setAuth: () => dispatch(setAuthenticated())
 	};
   }
 

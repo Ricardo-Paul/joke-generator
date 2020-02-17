@@ -1,24 +1,30 @@
-import { SET_ERROR, SET_AUTHENTICATED, SET_UNAUTHENTICATED } from "./actions/action-types"
+import { SET_ERROR, SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOGOUT } from "./actions/action-types"
 
 
 const initialState = {
-    authenticated: true,
+    authenticated: false,
     loading: false,
     error: ""
 }
 
 export const uiReducer = (state = initialState, action) => {
 
-    if(action.type === SET_ERROR ){
-        state.error = action.payload
+    switch(action.type){
+        case SET_AUTHENTICATED:
+            return {
+                ...state,
+                authenticated: true
+            }
+
+        case LOGOUT:
+            return {
+                ...state,
+                authenticated: false
+            }
+
+        default:
+            return state;
     }
 
-    if(action.type === SET_AUTHENTICATED ){
-        state.authenticated = true
-    }
 
-    if(action.type === SET_UNAUTHENTICATED){
-        state.authenticated = false
-    }
-    return state 
 }
